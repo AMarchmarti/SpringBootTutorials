@@ -1,5 +1,7 @@
 package org.formacio.component;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +21,13 @@ public class ServeiAlumnat {
 	public RepositoriAlumnesMemoria getRepositori() {
 		return repositori;
 	}
+	
+	@PostConstruct
+	public void init() {
+		getRepositori().altaAlumne(1, "Antonia");
+		getRepositori().altaAlumne(2, "Joan");
+	}
+	
 	
 	public boolean matricula (int id, String alumne) {
 		if (alumne == null) {
