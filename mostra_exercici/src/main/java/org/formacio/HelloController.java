@@ -10,6 +10,6 @@ public class HelloController {
 	@RequestMapping(path="/")
 	@ResponseBody
 	public String saluda() {
-		return "Hola profes!";
+		return "Necessitam aprovar!";
 	}
 }
