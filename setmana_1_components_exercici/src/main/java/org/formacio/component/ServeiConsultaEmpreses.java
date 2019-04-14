@@ -23,6 +23,9 @@ public class ServeiConsultaEmpreses {
 	// com farieu per fer que el metode infoDiari de obteMitjanaDiariaCotitzacions nomes se crides una vegada?
 	// pista (si nomes s'ha de cridar una vegada ... haurem de guardar el resultat a alguna banda ... )
 	public String infoDiari() {
+		if (client.getNombreInvocacions() < 1) {
+			return "La cotitzacio mitjana diaria es " + client.obteMitjanaDiariaCotitzacions();
+	}
 		return "La cotitzacio mitjana diaria es 0";
 	}
 
