@@ -21,5 +21,10 @@ public class ClientCotitzacionsWS implements IntegradorCotitzacions {
 		     default : return 20f;
 		}
 	}
+	
+	//Per tal de fer el darrer apartat de l'exercici hem de guardar la variable cridades per tenir constancia de cuantes vegades l'hem cridada.
+	public Integer getNombreInvocacions() {
+		return nombreInvocacions;
+	}
 
 }
