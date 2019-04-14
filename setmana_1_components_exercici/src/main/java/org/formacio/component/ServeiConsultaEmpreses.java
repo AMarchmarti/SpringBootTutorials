@@ -14,7 +14,7 @@ public class ServeiConsultaEmpreses {
 	
 	// modifiqueu aquest metode per canviar el 0 per el valor obtingut del clientCotitzacionsWS
 	public String infoEmpresa(String empresa) {
-		return "La empresa " + empresa + " cotitza " + client.obteCotitzacio(empresa);
+		return "La empresa " + empresa + " cotitza a " + client.obteCotitzacio(empresa);
 	}
 
 	
