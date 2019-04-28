@@ -4,8 +4,6 @@ package org.formacio.mvc;
 import org.formacio.repositori.AgendaService;
 import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +12,7 @@ public class AgendaController {
 
     @Autowired
     private AgendaService agenda;
+
 
     @RequestMapping(path = "/nombre")
     @ResponseBody
@@ -29,6 +28,7 @@ public class AgendaController {
 
 
     @RequestMapping(path = "/contacte/{id}")
+    @ResponseBody
     public Persona contacte(@PathVariable String id){
         return agenda.recupera(id);
     }
