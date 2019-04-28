@@ -28,13 +28,25 @@ public class PersonalController {
 	@RequestMapping(path = "/info")
 	@ResponseBody
 	public String infoBaseDades(){
-		return "Hi ha " + this.baseDeDades.size() + " persones";
+		return "Hi ha " + getBaseDeDades().size() + " persones";
 	}
 
 	@RequestMapping(path = "/consulta")
 	@ResponseBody
-	public String nomSeleccionat(@RequestParam(name = "id", defaultValue = "0" )int id){
-		return this.baseDeDades.get(id);
+	public String nomSeleccionat(@RequestParam(name = "id",required = false, defaultValue = "0" )int id){
+		return getBaseDeDades().get(id);
 	}
 
+	@RequestMapping(path = "/persona/{index}")
+    @ResponseBody
+    public String nomSeleccionatPagina(@PathVariable int index){
+	    return getBaseDeDades().get(index);
+    }
+
+    @RequestMapping(path = "/afegir", method = RequestMethod.POST)
+    @ResponseBody
+    public String afegirPersona(String nom) {
+        getBaseDeDades().add(nom);
+        return "ok";
+    }
 }
