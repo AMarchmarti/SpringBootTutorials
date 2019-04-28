@@ -31,4 +31,7 @@ public class AgendaService {
 		return bbdd.size();
 	}
 
+	public Map<String, Persona> getBbdd() {
+		return bbdd;
+	}
 }
