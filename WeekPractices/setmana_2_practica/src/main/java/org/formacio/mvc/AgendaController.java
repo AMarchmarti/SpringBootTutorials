@@ -5,11 +5,9 @@ import org.formacio.repositori.AgendaService;
 import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.*;
 
 @Controller
 public class AgendaController {
@@ -31,9 +29,15 @@ public class AgendaController {
 
 
     @RequestMapping(path = "/contacte/{id}")
-    @ResponseBody
-    @ResponseStatus(code = HttpStatus.NOT_FOUND)
     public Persona contacte(@PathVariable String id){
         return agenda.recupera(id);
     }
+
+
+    @RequestMapping(path = "/afegir", method = RequestMethod.POST)
+    @ResponseBody
+    public void afegirContacte(String id, String nom, String telefon){
+        this.agenda.inserta(id, nom, telefon);
+    }
 }
+
