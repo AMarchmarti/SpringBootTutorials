@@ -31,7 +31,7 @@ public class AgendaController {
         return agenda.recupera(id).getTelefon();
     }
 
-    @RequestMapping(path = "/contacte/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "/contacte/{id}")
     @ResponseBody
     public Persona contacte(@PathVariable String id){
         return agenda.recupera(id);

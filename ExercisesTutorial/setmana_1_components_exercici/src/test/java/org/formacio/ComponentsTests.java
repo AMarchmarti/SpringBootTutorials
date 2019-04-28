@@ -1,8 +1,5 @@
 package org.formacio;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import org.formacio.component.ClientCotitzacionsWS;
 import org.formacio.component.IntegradorCotitzacions;
 import org.formacio.component.ServeiConsultaEmpreses;
@@ -11,6 +8,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
