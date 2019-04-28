@@ -1,8 +1,7 @@
 package org.formacio.mvc;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,4 +30,11 @@ public class PersonalController {
 	public String infoBaseDades(){
 		return "Hi ha " + this.baseDeDades.size() + " persones";
 	}
+
+	@RequestMapping(path = "/consulta")
+	@ResponseBody
+	public String nomSeleccionat(@RequestParam(name = "id", defaultValue = "0" )int id){
+		return this.baseDeDades.get(id);
+	}
+
 }
