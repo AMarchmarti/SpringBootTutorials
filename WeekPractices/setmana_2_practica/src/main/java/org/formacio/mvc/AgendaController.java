@@ -1,10 +1,10 @@
 package org.formacio.mvc;
 
 
+import org.formacio.mvc.Exceptions.IdNoExisteix;
 import org.formacio.repositori.AgendaService;
 import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,20 +32,15 @@ public class AgendaController {
     @ResponseBody
     public Persona contacte(@PathVariable String id) throws Exception{
         if(!agenda.getBbdd().containsKey(id)){
-            Exception contacteDesconegut  = new Exception();
-            throw contacteDesconegut;
+            throw new IdNoExisteix();
         }else{
             return agenda.recupera(id);
         }
     }
 
-    @ResponseStatus(code = HttpStatus.NOT_FOUND)
-    @ExceptionHandler()
-    private void error(Exception contacteDesconegut){}
-
     @RequestMapping(path = "/afegir", method = RequestMethod.POST)
     @ResponseBody
-    public void afegirContacte(String id, String nom, String telefon){
+    public void afegirContacte(@RequestParam  String id, @RequestParam  String nom, @RequestParam String telefon){
         this.agenda.inserta(id, nom, telefon);
     }
 }
