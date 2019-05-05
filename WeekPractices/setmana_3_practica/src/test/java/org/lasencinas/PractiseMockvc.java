@@ -2,6 +2,7 @@ package org.lasencinas;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lasencinas.springbootmodel.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,7 +31,6 @@ public class PractiseMockvc {
     @Test
     public void test_getAllTopics() throws Exception {
         mockMvc.perform(get("/topics"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("All Topics"));
+                .andExpect(status().isOk());
     }
 }
