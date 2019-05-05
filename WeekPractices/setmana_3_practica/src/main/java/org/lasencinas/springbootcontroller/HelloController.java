@@ -1,4 +1,4 @@
-package org.lasencinas.springboothello;
+package org.lasencinas.springbootcontroller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -26,4 +26,11 @@ public class PractiseMockvc {
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hi!"));
     }
+
+    @Test
+    public void test_getAllTopics() throws Exception {
+        mockMvc.perform(get("/topics"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("All Topics"));
+    }
 }
