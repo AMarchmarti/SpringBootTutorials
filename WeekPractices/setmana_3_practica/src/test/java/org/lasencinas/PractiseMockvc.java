@@ -1,8 +1,10 @@
 package org.lasencinas;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lasencinas.springbootmodel.Topic;
+import org.lasencinas.springbootmodel.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.junit.Assert.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -44,9 +47,16 @@ public class PractiseMockvc {
     }
 
     @Test
-    public void test_contacte() throws Exception {
+    public void test_getTopicJson() throws Exception {
         mockMvc.perform(get("/topics/java").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{id : 'java', name: 'Core Java', description : 'Core Java Description'}"));
+    }
+
+    @Test
+    public void test_deleteTopic() throws Exception {
+        mockMvc.perform(delete("/topics/java").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
     }
 }
