@@ -32,5 +32,6 @@ public class PractiseMockvc {
     public void test_getAllTopics() throws Exception {
         mockMvc.perform(get("/topics"))
                 .andExpect(status().isOk());
+
     }
 }
