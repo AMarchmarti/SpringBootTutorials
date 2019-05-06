@@ -1,6 +1,7 @@
 package org.lasencinas.springbootmodel;
 
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -16,5 +17,9 @@ public class TopicService {
 
     public List<Topic> getAllTopics() {
         return listTopic;
+    }
+
+    public Topic getTopic(String id){
+        return listTopic.stream().filter(t -> t.getId().equals(id)).findFirst().get();
     }
 }

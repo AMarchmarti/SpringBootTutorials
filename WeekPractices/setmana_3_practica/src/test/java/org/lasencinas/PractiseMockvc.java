@@ -6,6 +6,7 @@ import org.lasencinas.springbootmodel.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -33,5 +34,19 @@ public class PractiseMockvc {
         mockMvc.perform(get("/topics"))
                 .andExpect(status().isOk());
 
+    }
+
+    @Test
+    public void test_getTopic() throws Exception {
+        mockMvc.perform(get("/topics/java").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+    }
+
+    @Test
+    public void test_contacte() throws Exception {
+        mockMvc.perform(get("/topics/java").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{id : 'java', name: 'Core Java', description : 'Core Java Description'}"));
     }
 }
